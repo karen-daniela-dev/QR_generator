@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Generator</title>
+  <link rel="shortcut icon" href="img/qr.png" type="image/x-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+</head>
+<body>
+
+  <main class="app-wrapper">
+    <div class="card" id="app-card">
+
+      <!-- ── HEADER ── -->
+      <header class="card__header">
+        <div class="header__icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" class="icon">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <path d="M14 14h2v2h-2zM18 14h3v3h-3zM14 18h3v3h-3zM18 20h3"/>
+          </svg>
+        </div>
+        <h1 class="header__title">QR Generator</h1>
+        <p class="header__subtitle">Crea códigos QR listos para compartir</p>
+      </header>
+
+      <!-- ── FORM ── -->
+      <section class="card__form" aria-label="Configuración del QR">
+
+        <!-- URL -->
+        <div class="field">
+          <label class="field__label" for="url-input">URL o texto</label>
+          <input
+            id="url-input"
+            class="neu-input"
+            type="text"
+            placeholder="https://tu-enlace.com"
+            autocomplete="off"
+            spellcheck="false"
+            aria-describedby="url-error"
+          />
+          <span class="field__error" id="url-error" role="alert" aria-live="polite"></span>
+        </div>
+
+        <!-- OPTIONS ROW: size + color -->
+        <div class="options-row">
+          <div class="field field--inline">
+            <label class="field__label" for="size-select">Tamaño</label>
+            <div class="neu-select-wrap">
+              <select id="size-select" class="neu-select" aria-label="Tamaño del QR">
+                <option value="200">S — 200px</option>
+                <option value="260" selected>M — 260px</option>
+                <option value="340">L — 340px</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field field--inline">
+            <label class="field__label" for="color-input">Color del QR</label>
+            <div class="color-picker-wrap">
+              <input
+                id="color-input"
+                class="color-picker"
+                type="color"
+                value="#1a1c24"
+                aria-label="Color de los módulos del QR"
+              />
+              <span class="color-label" id="color-label">#1a1c24</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACTION BUTTONS -->
+        <div class="action-row">
+          <button class="btn btn--primary btn--full" id="btn-generate" type="button">
+            Generar QR
+          </button>
+          <button class="btn btn--ghost btn--full" id="btn-clear" type="button"
+                  aria-label="Limpiar todos los campos">
+            Limpiar
+          </button>
+        </div>
+      </section>
+
+      <!-- ── QR OUTPUT ── -->
+      <section class="qr-output" id="qr-output" aria-label="QR generado" aria-live="polite">
+        <div class="qr-frame" id="qr-frame"></div>
+
+        <div class="qr-actions">
+          <button class="btn btn--ghost btn--action" id="btn-save" type="button"
+                  aria-label="Guardar QR como PNG">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" class="icon icon--sm">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Guardar PNG
+          </button>
+          <button class="btn btn--ghost btn--action" id="btn-copy" type="button"
+                  aria-label="Copiar QR al portapapeles">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" class="icon icon--sm">
+              <rect x="9" y="9" width="13" height="13" rx="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+            Copiar
+          </button>
+        </div>
+      </section>
+
+    
+
+      <!-- ── FOOTER / SOCIAL ── -->
+      <footer class="card__footer">
+        <div class="divider"><span>conecta conmigo</span></div>
+        <nav class="social-row" aria-label="Redes sociales">
+          <a class="btn btn--social"
+             
+             target="_blank" rel="noopener noreferrer"
+             aria-label="LinkedIn de Karen Daniela">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="icon icon--sm">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+            </svg>
+            LinkedIn
+          </a>
+        
+        </nav>
+      </footer>
+
+    </div><!-- /.card -->
+  </main>
+
+  <!-- External QR library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <!-- App modules (order matters) -->
+  <script src="js/config.js"></script>
+  
+  <script src="js/qrEngine.js"></script>
+ 
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

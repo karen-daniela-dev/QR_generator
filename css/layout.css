@@ -1,0 +1,139 @@
+/* ============================================================
+   layout.css — Page & card layout, section spacing
+   ============================================================ */
+
+/* ── App wrapper (full-page centering) ── */
+.app-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space-6);
+}
+
+/* ── Card ── */
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: var(--space-9) var(--space-8) var(--space-7);
+  width: 100%;
+  max-width: 420px;
+  box-shadow: var(--shadow-raised);
+}
+
+/* ── Card Header ── */
+.card__header {
+  text-align: center;
+  margin-bottom: var(--space-7);
+}
+
+.header__icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  margin: 0 auto var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-raised-sm);
+  color: var(--color-accent);
+}
+
+.header__title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.3px;
+}
+
+.header__subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+}
+
+/* ── Form section ── */
+.card__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* Options row: size + color side by side */
+.options-row {
+  display: flex;
+  gap: var(--space-4);
+}
+
+/* Action buttons */
+.action-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-1);
+}
+
+/* ── QR Output ── */
+.qr-output {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.qr-output.is-visible {
+  display: flex;
+}
+
+.qr-actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+
+/* ── Footer ── */
+.card__footer {
+  margin-top: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.social-row {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+/* ── Responsive: narrow screens ── */
+@media (max-width: 460px) {
+  .card {
+    padding: var(--space-7) var(--space-6) var(--space-6);
+    border-radius: var(--radius-lg);
+  }
+
+  .options-row {
+    flex-direction: column;
+  }
+
+  .social-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn--social {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .qr-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn--action {
+    justify-content: center;
+  }
+}

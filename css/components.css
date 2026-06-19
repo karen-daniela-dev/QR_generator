@@ -1,0 +1,277 @@
+/* ============================================================
+   components.css — Reusable UI components
+   ============================================================ */
+
+/* ── Icon ── */
+.icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  display: block;
+}
+.icon--sm { width: 15px; height: 15px; }
+
+/* ── Field ── */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.field--inline {
+  flex: 1;
+}
+
+.field__label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.field__label--muted {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--color-text-muted);
+}
+
+.field__error {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-danger);
+  min-height: 16px;
+  display: block;
+}
+
+/* ── Neumorphic Input ── */
+.neu-input {
+  width: 100%;
+  background: var(--color-surface-deep);
+  border: none;
+  outline: none;
+  border-radius: var(--radius-md);
+  padding: 13px var(--space-4);
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+  box-shadow: var(--shadow-inset);
+  transition: box-shadow var(--transition-normal);
+}
+
+.neu-input:focus {
+  box-shadow: var(--shadow-inset-focus);
+}
+
+.neu-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.neu-input--readonly {
+  cursor: default;
+  flex: 1;
+}
+
+/* ── Neumorphic Select ── */
+.neu-select-wrap {
+  position: relative;
+}
+
+.neu-select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0; height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid var(--color-text-muted);
+  pointer-events: none;
+}
+
+.neu-select {
+  width: 100%;
+  appearance: none;
+  background: var(--color-surface-deep);
+  border: none;
+  outline: none;
+  border-radius: var(--radius-md);
+  padding: 13px 32px 13px var(--space-4);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+  font-weight: 500;
+  box-shadow: var(--shadow-inset);
+  cursor: pointer;
+  transition: box-shadow var(--transition-normal);
+}
+
+.neu-select:focus {
+  box-shadow: var(--shadow-inset-focus);
+}
+
+/* ── Color Picker ── */
+.color-picker-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--color-surface-deep);
+  border-radius: var(--radius-md);
+  padding: 8px var(--space-4);
+  box-shadow: var(--shadow-inset);
+}
+
+.color-picker {
+  width: 28px;
+  height: 28px;
+  border: none;
+  padding: 0;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  background: transparent;
+  flex-shrink: 0;
+}
+
+.color-picker::-webkit-color-swatch-wrapper { padding: 0; }
+.color-picker::-webkit-color-swatch { border: none; border-radius: var(--radius-sm); }
+.color-picker::-moz-color-swatch { border: none; border-radius: var(--radius-sm); }
+
+.color-label {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.5px;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-family);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 13px var(--space-4);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+}
+
+/* Primary */
+.btn--primary {
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+  font-size: var(--font-size-md);
+  box-shadow:
+    4px  4px 12px var(--color-shadow-dark),
+    -2px -2px 8px var(--color-shadow-light);
+  letter-spacing: 0.2px;
+}
+.btn--primary:hover  { background: var(--color-accent-hover); }
+.btn--primary:active { transform: scale(0.98); }
+
+/* Ghost */
+.btn--ghost {
+  background: var(--color-surface);
+  box-shadow: var(--shadow-raised-sm);
+}
+.btn--ghost:hover  { color: var(--color-accent-hover); }
+.btn--ghost:active {
+  box-shadow: var(--shadow-inset);
+}
+
+/* Full width */
+.btn--full { width: 100%; }
+
+/* Small */
+.btn--sm {
+  padding: 0 var(--space-4);
+  height: 44px;
+  font-size: var(--font-size-sm);
+}
+
+/* Icon only */
+.btn--icon {
+  width: 44px;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+/* Action (save/copy) */
+.btn--action {
+  padding: 11px var(--space-7);
+  font-size: var(--font-size-sm);
+}
+
+/* Social */
+.btn--social {
+  padding: 10px var(--space-4);
+  font-size: var(--font-size-sm);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-raised-sm);
+  color: var(--color-text-primary);
+}
+.btn--social:hover  { color: var(--color-accent-hover); }
+.btn--social:active { box-shadow: var(--shadow-inset); }
+
+/* Toast feedback on copy */
+.btn--copied {
+  color: var(--color-text-success) !important;
+}
+
+/* ── Divider ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-shadow-dark);
+}
+
+.divider span {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ── QR Frame ── */
+.qr-frame {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  box-shadow:
+    6px  6px 16px var(--color-shadow-dark),
+    -6px -6px 16px var(--color-shadow-light);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-frame canvas,
+.qr-frame img {
+  display: block;
+}
+
+
+
+
+
+
+

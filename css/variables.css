@@ -1,0 +1,74 @@
+/* ============================================================
+   variables.css — Design tokens
+   All color, spacing, radius, shadow, and typography values
+   live here. Change a token → change the whole app.
+   ============================================================ */
+
+:root {
+  /* ── Palette ── */
+  --color-bg:           #e8eaed;
+  --color-surface:      #eeeff2;
+  --color-surface-deep: #e4e6ea;
+  --color-shadow-dark:  #c5c8cf;
+  --color-shadow-light: #ffffff;
+
+  --color-accent:       #5a5e6b;
+  --color-accent-hover: #3e4252;
+  --color-accent-text:  #ffffff;
+
+  --color-text-primary: #3a3d4a;
+  --color-text-muted:   #8a8d9a;
+  --color-text-danger:  #c0392b;
+  --color-text-success: #27ae60;
+
+  /* ── Neumorphic shadows ── */
+  --shadow-raised:
+    8px  8px 20px var(--color-shadow-dark),
+    -8px -8px 20px var(--color-shadow-light);
+
+  --shadow-raised-sm:
+    4px  4px 10px var(--color-shadow-dark),
+    -4px -4px 10px var(--color-shadow-light);
+
+  --shadow-inset:
+    inset 3px  3px 8px var(--color-shadow-dark),
+    inset -3px -3px 8px var(--color-shadow-light);
+
+  --shadow-inset-focus:
+    inset 4px  4px 10px var(--color-shadow-dark),
+    inset -4px -4px 10px var(--color-shadow-light),
+    0 0 0 2px rgba(90, 94, 107, 0.25);
+
+  /* ── Border radii ── */
+  --radius-card:   28px;
+  --radius-lg:     20px;
+  --radius-md:     12px;
+  --radius-sm:     8px;
+  --radius-full:   9999px;
+
+  /* ── Spacing scale ── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-7:  28px;
+  --space-8:  32px;
+  --space-9:  36px;
+
+  /* ── Typography ── */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-size-xs:  11px;
+  --font-size-sm:  12px;
+  --font-size-base: 14px;
+  --font-size-md:  15px;
+  --font-size-lg:  18px;
+
+  /* ── Transitions ── */
+  --transition-fast:   0.15s ease;
+  --transition-normal: 0.2s ease;
+
+  /* ── Z-index ── */
+  --z-tooltip: 10;
+}
